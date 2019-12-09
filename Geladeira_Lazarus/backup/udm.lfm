@@ -1,0 +1,28 @@
+object dm: Tdm
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 148
+  HorizontalOffset = 750
+  VerticalOffset = 127
+  Width = 226
+  PPI = 96
+  object Timer1: TTimer
+    Interval = 3000
+    OnTimer = Timer1Timer
+    left = 88
+    top = 19
+  end
+  object LazSerial1: TLazSerial
+    Active = False
+    BaudRate = br__9600
+    DataBits = db8bits
+    Parity = pNone
+    FlowControl = fcNone
+    StopBits = sbOne
+    Device = 'COM4'
+    RcvLineCRLF = False
+    OnRxData = LazSerial1RxData
+    left = 32
+    top = 19
+  end
+end
