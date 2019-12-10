@@ -31,7 +31,6 @@ type
     procedure Button1Click(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: char);
     procedure Hora_DataTimer(Sender: TObject);
-    procedure ReqTimer(Sender: TObject);
   private
 
   public
@@ -43,7 +42,7 @@ var
 
 implementation
 
-uses uDm,ulogs;
+uses uDm,ulogs, untdeserto, untcam, untdesenho;
 {$R *.lfm}
 
 { TfrmPrinc }

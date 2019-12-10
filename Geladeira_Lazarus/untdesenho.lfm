@@ -1,7 +1,7 @@
 object frmdesenho: Tfrmdesenho
-  Left = 350
+  Left = -59
   Height = 742
-  Top = 58
+  Top = 28
   Width = 1362
   BorderStyle = bsNone
   Caption = 'T4 Desenho Geladeira'

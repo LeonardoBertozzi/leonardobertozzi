@@ -1,7 +1,7 @@
 object frmconsumo: Tfrmconsumo
-  Left = 240
+  Left = -28
   Height = 742
-  Top = 157
+  Top = 93
   Width = 1362
   BorderStyle = bsNone
   Caption = 'T3 consumo'

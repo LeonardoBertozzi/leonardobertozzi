@@ -36,7 +36,7 @@ var
 
 implementation
 
-uses untdeserto, ulogs;
+uses untdeserto, ulogs, untcam, untdesenho;
 {$R *.lfm}
 
 { Tdm }
@@ -46,7 +46,9 @@ procedure Tdm.LazSerial1RxData(Sender: TObject);
 var
    Response: TStringList;
    Payload: TStringList;
-   tela : float ;
+   tela_background : Double ;
+   tela : integer = 1;
+
 begin
 
 if (AnalyzeReceivedData(LazSerial1.ReadData,MsgRetorno) <> '') then
@@ -75,11 +77,13 @@ if (AnalyzeReceivedData(LazSerial1.ReadData,MsgRetorno) <> '') then
             LazSerial1.WriteData('*SD,HD,BTNFOK,' + Response[3] + '#' );
             frmLogs.Memo1.Lines.add('RESPONDI') ;
             frmLogs.Memo1.Lines.add('*SD,HD,BTNFOK,' + Response[3] + '#') ;
+            tela := tela + 1 ;
             end;
     'BTNV': begin
             LazSerial1.WriteData('*SD,HD,BTNVOK,' + Response[3] + '#' );
             frmLogs.Memo1.Lines.add('RESPONDI') ;
             frmLogs.Memo1.Lines.add('*SD,HD,BTNVOK,' + Response[3] + '#') ;
+            tela := tela - 1 ;
             end;
     'PIR': begin
             LazSerial1.WriteData('*SD,HD,PIROK,' + Response[3] + '#' );
@@ -93,7 +97,8 @@ if (AnalyzeReceivedData(LazSerial1.ReadData,MsgRetorno) <> '') then
             end;
     end;
 
-    tela := StrtoFloat(Payload[0]);
+
+
     if (Payload.Count > 1) then
      begin
     LazSerial1.WriteData('*SD,HD,SENSORESOK,' + Response[3] + '#' );
@@ -102,12 +107,25 @@ if (AnalyzeReceivedData(LazSerial1.ReadData,MsgRetorno) <> '') then
     frmPrinc.lbl_tempambiente.Caption := (Payload[0] + ' °C');
     frmPrinc.lbl_teminterna.Caption := (Payload[1] + ' °C');
     frmPrinc.lbl_tempfreezer.Caption := (Payload[2] + ' °C');
+    tela_background := StrToFloat(StringReplace(Payload[0], '.', ',', [rfReplaceAll]));
      end;
 
-    if (tela > 28.00) then
+    if (tela_background < 5) then
+     begin
+     frmPrinc.img_background.Picture.LoadFromFile(ExtractFilePath(Application.ExeName) + '\img\neve.png');
+     end;
+
+    if (tela_background > 5) then
      begin
      frmPrinc.img_background.Picture.LoadFromFile(ExtractFilePath(Application.ExeName) + '\img\ensolarado.png');
      end;
+
+    if (tela_background > 34) then
+     begin
+     frmPrinc.img_background.Picture.LoadFromFile(ExtractFilePath(Application.ExeName) + '\img\deserto.png');
+     end;
+
+
 
     finally
     Response.Free;
@@ -130,13 +148,13 @@ begin
    if tela_ativa = 5 then
     tela_ativa := 1 ;
 
-   //case tela_ativa of
-   //1 : frmPrinc.img_background.Picture.LoadFromFile(ExtractFilePath(Application.ExeName) + '\img\deserto.png');
-   //2 : frmPrinc.img_background.Picture.LoadFromFile(ExtractFilePath(Application.ExeName) + '\img\ensolarado.png');
-   //3 : frmPrinc.img_background.Picture.LoadFromFile(ExtractFilePath(Application.ExeName) + '\img\neve.png');
-   //4 : frmPrinc.img_background.Picture.LoadFromFile(ExtractFilePath(Application.ExeName) + '\img\telaazul.png');
+   case tela_ativa of
+   1 : frmPrinc.ShowModal;
+   2 : frmdesenho.ShowModal;
+   3 : frmPrinc.img_background.Picture.LoadFromFile(ExtractFilePath(Application.ExeName) + '\img\neve.png');
+   4 : frmPrinc.img_background.Picture.LoadFromFile(ExtractFilePath(Application.ExeName) + '\img\telaazul.png');
 
-   //end;
+   end;
 end;
 
 function Tdm.AnalyzeReceivedData(Data: string; var ReturnMessage: String): String;

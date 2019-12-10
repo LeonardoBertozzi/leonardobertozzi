@@ -1,7 +1,7 @@
 object frmdesenho: Tfrmdesenho
-  Left = 228
+  Left = 350
   Height = 742
-  Top = 120
+  Top = 58
   Width = 1362
   BorderStyle = bsNone
   Caption = 'T4 Desenho Geladeira'
@@ -16,7 +16,6 @@ object frmdesenho: Tfrmdesenho
     Top = 0
     Width = 1366
     AutoSize = True
-    OnClick = Image1Click
     Picture.Data = {
       1754506F727461626C654E6574776F726B4772617068696310980D0089504E47
       0D0A1A0A0000000D4948445200000556000003000806000000CF3E3CC2000000
@@ -27892,14 +27891,5 @@ object frmdesenho: Tfrmdesenho
     Font.Quality = fqDraft
     ParentColor = False
     ParentFont = False
-  end
-  object BitBtn1: TBitBtn
-    Left = 605
-    Height = 56
-    Top = 518
-    Width = 116
-    Caption = 'BitBtn1'
-    OnClick = BitBtn1Click
-    TabOrder = 1
   end
 end

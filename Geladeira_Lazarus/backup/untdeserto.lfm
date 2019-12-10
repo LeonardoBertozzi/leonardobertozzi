@@ -40791,7 +40791,6 @@ object frmPrinc: TfrmPrinc
   end
   object Req: TTimer
     Interval = 500
-    OnTimer = ReqTimer
     left = 64
     top = 168
   end

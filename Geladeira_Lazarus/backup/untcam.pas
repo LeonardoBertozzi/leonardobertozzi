@@ -13,7 +13,6 @@ type
   { Tfrmcam }
 
   Tfrmcam = class(TForm)
-    BitBtn1: TBitBtn;
     Image1: TImage;
     Label1: TLabel;
     smartfreezer: TStaticText;
@@ -27,7 +26,7 @@ var
   frmcam: Tfrmcam;
 
 implementation
-
+ uses  untdeserto, ulogs, untcam, untdesenho;
 {$R *.lfm}
 
 { Tfrmcam }

@@ -13,7 +13,6 @@ type
   { Tfrmconsumo }
 
   Tfrmconsumo = class(TForm)
-    BitBtn1: TBitBtn;
     Image1: TImage;
     Label1: TLabel;
     smartfreezer: TStaticText;

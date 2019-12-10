@@ -26,7 +26,7 @@ var
   frmdesenho: Tfrmdesenho;
 
 implementation
-uses untdeserto;
+uses untdeserto, ulogs, untcam;
 {$R *.lfm}
 
 { Tfrmdesenho }

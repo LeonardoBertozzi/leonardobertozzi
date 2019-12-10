@@ -42,7 +42,7 @@ var
 
 implementation
 
-uses uDm,ulogs;
+uses uDm,ulogs, untcam, untdesenho;
 {$R *.lfm}
 
 { TfrmPrinc }

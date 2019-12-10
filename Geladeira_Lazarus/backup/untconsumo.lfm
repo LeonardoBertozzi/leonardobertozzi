@@ -27876,15 +27876,6 @@ object frmconsumo: Tfrmconsumo
     ParentFont = False
     TabOrder = 0
   end
-  object BitBtn1: TBitBtn
-    Left = 605
-    Height = 56
-    Top = 518
-    Width = 116
-    Caption = 'BitBtn1'
-    OnClick = BitBtn1Click
-    TabOrder = 1
-  end
   object Label1: TLabel
     Left = 152
     Height = 32

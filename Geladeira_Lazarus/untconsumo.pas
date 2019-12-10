@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Buttons, untdesenho;
+  Buttons, untdeserto, ulogs, untcam, untdesenho;
 
 type
 

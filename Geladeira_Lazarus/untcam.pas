@@ -26,7 +26,7 @@ var
   frmcam: Tfrmcam;
 
 implementation
-
+ uses  untdeserto, ulogs, untdesenho;
 {$R *.lfm}
 
 { Tfrmcam }
